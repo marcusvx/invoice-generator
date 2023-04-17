@@ -1,0 +1,248 @@
+<html>
+  <head>
+    <style type="text/css">
+      /* CSS RESET */
+      html,
+      body,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      table,
+      tbody,
+      thead,
+      tr,
+      th,
+      td {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      body {
+        line-height: 1;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      /* END - RESET */
+
+      body {
+        font-size: 7.5pt;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0.8cm;
+        color: #202020;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+      h1,
+      .h1 {
+        font-size: 11pt;
+      }
+      h2,
+      .h2 {
+        font-size: 10pt;
+      }
+      h6 {
+        color: #949494;
+        text-transform: uppercase;
+        font-size: 6pt;
+        margin-bottom: 0.06cm;
+        font-weight: bold;
+      }
+      .title,
+      .total {
+        font-size: 16pt;
+      }
+      .title {
+        color: #585858;
+        margin-bottom: 0.3cm;
+      }
+      .details-block div {
+        line-height: 10pt;
+      }
+      .text-bold {
+        font-weight: bold;
+      }
+      .float-left {
+        float: left;
+      }
+      .float-right {
+        float: right;
+      }
+      .clear {
+        clear: both;
+      }
+      .mr-1 {
+        margin-right: 1cm;
+      }
+      .mr-2 {
+        margin-right: 2cm;
+      }
+      .mb-1 {
+        margin-bottom: 0.5cm;
+      }
+      .main-title {
+        margin-top: 1cm;
+        margin-bottom: 0.2cm;
+      }
+      table {
+        font-size: 7.5pt;
+      }
+      table thead tr {
+        background-color: #0d83dd;
+      }
+      table thead tr th {
+        text-align: left;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 0.2cm 0.1cm;
+        font-size: 7pt;
+        font-weight: bold;
+      }
+
+      .summary-table {
+        width: 3.6cm;
+        margin-bottom: 2cm;
+      }
+
+      .items-table tbody tr td {
+        background-color: #f7f7f7;
+        border-bottom: solid 0.1cm #fff;
+        border-top: solid 0.1cm #fff;
+      }
+
+      table tbody tr td {
+        padding: 0.2cm 0.1cm;
+      }
+
+      .summary-table tbody tr td:first-child {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="main-title">{{&company_name}}</h1>
+    <div class="mb-1 details-block">
+      <div class="float-left mr-2">{{&issuer_address}}</div>
+      <div class="float-left">
+        {{issuer_phone_number}}<br />
+        {{issuer_email}}
+      </div>
+      <div style="clear: both"></div>
+    </div>
+    <div class="mb-1">
+      <h6>BILLED TO</h6>
+      <div class="details-block">
+        <div class="text-bold">{{recipient_name}}</div>
+        <div>{{&recipient_address}}</div>
+      </div>
+    </div>
+    <div class="mb-1">
+      <div class="float-left">
+        <h2 class="title">Invoice</h2>
+        <div class="mb-1">
+          <h6>Invoice number</h6>
+          <div>{{invoice_number}}</div>
+        </div>
+        <div>
+          <h6>Date of issue</h6>
+          <div>{{#dateFormat}}{{issue_date}}{{/dateFormat}}</div>
+        </div>
+      </div>
+      <div class="float-right">
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Unit Cost</th>
+              <th>Qty/Hr Rate</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Software development, from
+                {{#dateFormat}}{{date_from}}{{/dateFormat}} to
+                {{#dateFormat}}{{date_to}}{{/dateFormat}}
+              </td>
+              <td>${{invoice_hour_rate}}</td>
+              <td>{{invoice_hour_amount}}</td>
+              <td>${{invoice_total}}</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div>
+      <div class="float-right">
+        <table class="summary-table">
+          <tr>
+            <td><h6>Subtotal</h6></td>
+            <td><h2>${{invoice_total}}</h2></td>
+          </tr>
+          <tr>
+            <td><h6>Discount</h6></td>
+            <td>$0</td>
+          </tr>
+
+          <tr>
+            <td><h6>(Tax Rate)</h6></td>
+            <td>0%</td>
+          </tr>
+
+          <tr>
+            <td><h6>Tax</h6></td>
+            <td>$0</td>
+          </tr>
+
+          <tr style="border-top: solid #949494 1px">
+            <td colspan="2">
+              <h6>Invoice Total</h6>
+              <div class="total">${{invoice_total}}</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div>
+      <h6>Notes</h6>
+      <div>Please pay invoice within 15 days</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "company_name": "COMPANY NAME",
+  "issuer_address": "ISSUER ADDRESSS",
+  "issuer_phone_number": "ISSUER PHONE NUMBER",
+  "issuer_email": "ISSUER EMAIL",
+  "recipient_name": "RECIPIENT NAME",
+  "recipient_address": "RECIPIENT ADDRESS",
+  "invoice_hour_rate": 99,
+  "invoice_hour_amount": 160
+}

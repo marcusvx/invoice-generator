@@ -1,0 +1,26 @@
+{
+  "name": "invoice-generator",
+  "version": "1.0.0",
+  "description": "Automate invoice creation and submission",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusvx/invoice-generator.git"
+  },
+  "author": "Marcus V. Ximenes",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/marcusvx/invoice-generator/issues"
+  },
+  "homepage": "https://github.com/marcusvx/invoice-generator#readme",
+  "dependencies": {
+    "html-pdf": "^3.0.1",
+    "mammoth": "^1.5.1",
+    "moment": "^2.29.4",
+    "mustache": "^4.2.0"
+  }
+}
