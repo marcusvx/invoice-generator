@@ -1,5 +1,5 @@
 node_modules/
 .idea/
-data.json
+data/invoice.sample.json
 *.pdf
 .vscode/

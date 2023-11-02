@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Automate invoice creation and submission",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
